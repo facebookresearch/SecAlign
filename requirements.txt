@@ -1,0 +1,12 @@
+numpy
+tqdm
+wandb
+sentencepiece
+pandas
+ml_collections
+jaxtyping
+fschat
+accelerate==0.29.0
+transformers==4.42.4
+torch==2.2.0
+alpaca_eval==0.5.0
