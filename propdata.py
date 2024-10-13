@@ -16,7 +16,7 @@ for d in data_sandwich:
     if d['input'] != '': num_sample_with_input += 1
     else: 
         num_sample_without_input += 1
-        data_sandwich['input'] += '\n\nPlease always remember that your task is: ' + d['instruction']
+        d['input'] += '\n\nPlease always remember that your task is: ' + d['instruction']
 sandwich_path = 'data/alpaca_data_cleaned_sandwich.json'
 if not os.path.exists(sandwich_path): jdump(data_sandwich, sandwich_path)
 
