@@ -1,0 +1,10 @@
+defaults:
+  - base
+  - _self_
+
+mode: eval_suffix_dataset
+
+eval:
+  batch_size: 8
+  suffix_dataset_pth_dct:
+    suffixes_eval_1: exp/local/2024.07.02/073311_mistral-struq/suffix_dataset/train_2080.csv
