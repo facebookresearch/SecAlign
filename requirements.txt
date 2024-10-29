@@ -1,0 +1,14 @@
+numpy==1.26.4
+tqdm==4.66.5
+wandb==0.18.5
+sentencepiece==0.2.0
+pandas==2.2.3
+ml_collections
+jaxtyping==0.2.34
+fschat==0.2.36
+trl==0.8.6
+peft==0.10.0
+accelerate==0.29.0
+transformers==4.42.4
+torch==2.2.0
+alpaca_eval==0.5.0
