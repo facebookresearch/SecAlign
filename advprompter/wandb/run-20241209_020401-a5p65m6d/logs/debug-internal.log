@@ -1,0 +1,16 @@
+{"time":"2024-12-09T02:04:01.506716149Z","level":"INFO","msg":"using version","core version":"0.18.5"}
+{"time":"2024-12-09T02:04:01.507136223Z","level":"INFO","msg":"created symlink","path":"/opt/hpcaas/.mounts/fs-0565f60d669b6a2d3/home/sizhechen/SecAlign_fairinternal/advprompter/wandb/run-20241209_020401-a5p65m6d/logs/debug-core.log"}
+{"time":"2024-12-09T02:04:01.620271045Z","level":"INFO","msg":"created new stream","id":"a5p65m6d"}
+{"time":"2024-12-09T02:04:01.620312539Z","level":"INFO","msg":"stream: started","id":"a5p65m6d"}
+{"time":"2024-12-09T02:04:01.62039512Z","level":"INFO","msg":"sender: started","stream_id":"a5p65m6d"}
+{"time":"2024-12-09T02:04:01.620329878Z","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"a5p65m6d"}}
+{"time":"2024-12-09T02:04:01.620338194Z","level":"INFO","msg":"handler: started","stream_id":{"value":"a5p65m6d"}}
+{"time":"2024-12-09T02:04:01.801403399Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-12-09T02:04:03.039083272Z","level":"INFO","msg":"stream: closing","id":"a5p65m6d"}
+{"time":"2024-12-09T02:04:03.039137412Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-12-09T02:04:03.040003892Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-12-09T02:04:03.32185943Z","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-12-09T02:04:03.413328091Z","level":"INFO","msg":"handler: closed","stream_id":{"value":"a5p65m6d"}}
+{"time":"2024-12-09T02:04:03.413357033Z","level":"INFO","msg":"sender: closed","stream_id":"a5p65m6d"}
+{"time":"2024-12-09T02:04:03.413354234Z","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"a5p65m6d"}}
+{"time":"2024-12-09T02:04:03.414201251Z","level":"INFO","msg":"stream: closed","id":"a5p65m6d"}

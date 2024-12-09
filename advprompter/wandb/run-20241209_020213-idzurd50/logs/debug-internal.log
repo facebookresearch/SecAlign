@@ -1,0 +1,16 @@
+{"time":"2024-12-09T02:02:13.442432093Z","level":"INFO","msg":"using version","core version":"0.18.5"}
+{"time":"2024-12-09T02:02:13.443297955Z","level":"INFO","msg":"created symlink","path":"/opt/hpcaas/.mounts/fs-0565f60d669b6a2d3/home/sizhechen/SecAlign_fairinternal/advprompter/wandb/run-20241209_020213-idzurd50/logs/debug-core.log"}
+{"time":"2024-12-09T02:02:13.673545344Z","level":"INFO","msg":"created new stream","id":"idzurd50"}
+{"time":"2024-12-09T02:02:13.674060095Z","level":"INFO","msg":"stream: started","id":"idzurd50"}
+{"time":"2024-12-09T02:02:13.674407619Z","level":"INFO","msg":"handler: started","stream_id":{"value":"idzurd50"}}
+{"time":"2024-12-09T02:02:13.674538815Z","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"idzurd50"}}
+{"time":"2024-12-09T02:02:13.674542811Z","level":"INFO","msg":"sender: started","stream_id":"idzurd50"}
+{"time":"2024-12-09T02:02:14.133667272Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-12-09T02:02:15.261585492Z","level":"INFO","msg":"stream: closing","id":"idzurd50"}
+{"time":"2024-12-09T02:02:15.264132212Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-12-09T02:02:15.266850709Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-12-09T02:02:16.156759683Z","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-12-09T02:02:16.237540444Z","level":"INFO","msg":"handler: closed","stream_id":{"value":"idzurd50"}}
+{"time":"2024-12-09T02:02:16.237564656Z","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"idzurd50"}}
+{"time":"2024-12-09T02:02:16.237581409Z","level":"INFO","msg":"sender: closed","stream_id":"idzurd50"}
+{"time":"2024-12-09T02:02:16.238565444Z","level":"INFO","msg":"stream: closed","id":"idzurd50"}

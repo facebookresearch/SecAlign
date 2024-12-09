@@ -1,0 +1,88 @@
+Initializing Prompter...
+ Loading model: llama2-7b from meta-llama/Llama-2-7b-hf...
+tokenizer_config.json: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 776/776 [00:00<00:00, 5.34MB/s]
+tokenizer.model: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 500k/500k [00:00<00:00, 65.6MB/s]
+special_tokens_map.json: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 414/414 [00:00<00:00, 2.95MB/s]
+tokenizer.json: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1.84M/1.84M [00:00<00:00, 21.9MB/s]
+config.json: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 609/609 [00:00<00:00, 4.19MB/s]
+model.safetensors.index.json: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 26.8k/26.8k [00:00<00:00, 132MB/s]
+model-00001-of-00002.safetensors: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 9.98G/9.98G [00:55<00:00, 180MB/s]
+model-00002-of-00002.safetensors: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3.50G/3.50G [00:19<00:00, 179MB/s]
+Downloading shards: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [01:15<00:00, 37.66s/it]
+Loading checkpoint shards: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [02:34<00:00, 77.37s/it]
+generation_config.json: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 188/188 [00:00<00:00, 1.03MB/s]
+ Loaded model: LlamaForCausalLM(
+  (model): LlamaModel(
+    (embed_tokens): Embedding(32000, 4096)
+    (layers): ModuleList(
+      (0-31): 32 x LlamaDecoderLayer(
+        (self_attn): LlamaSdpaAttention(
+          (q_proj): Linear(in_features=4096, out_features=4096, bias=False)
+          (k_proj): Linear(in_features=4096, out_features=4096, bias=False)
+          (v_proj): Linear(in_features=4096, out_features=4096, bias=False)
+          (o_proj): Linear(in_features=4096, out_features=4096, bias=False)
+          (rotary_emb): LlamaRotaryEmbedding()
+        )
+        (mlp): LlamaMLP(
+          (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+          (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+          (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+          (act_fn): SiLU()
+        )
+        (input_layernorm): LlamaRMSNorm()
+        (post_attention_layernorm): LlamaRMSNorm()
+      )
+    )
+    (norm): LlamaRMSNorm()
+  )
+  (lm_head): Linear(in_features=4096, out_features=32000, bias=False)
+)
+ Mem usage model: 26.95 GB | Total Mem usage: 26.95 GB
+ Transforming to LoRA model...
+ trainable params: 4483072 || all params: 6742898688 || trainable%: 0.07
+Initializing TargetLLM...
+ Loading model: Meta-Llama-3-8B_SpclSpclSpcl_None_2024-08-09-17-02-02 from ../meta-llama/Meta-Llama-3-8B_SpclSpclSpcl_None_2024-08-09-17-02-02...
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+Loading checkpoint shards: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 7/7 [04:17<00:00, 36.78s/it]
+ Loaded model: LlamaForCausalLM(
+  (model): LlamaModel(
+    (embed_tokens): Embedding(128265, 4096)
+    (layers): ModuleList(
+      (0-31): 32 x LlamaDecoderLayer(
+        (self_attn): LlamaSdpaAttention(
+          (q_proj): Linear(in_features=4096, out_features=4096, bias=False)
+          (k_proj): Linear(in_features=4096, out_features=1024, bias=False)
+          (v_proj): Linear(in_features=4096, out_features=1024, bias=False)
+          (o_proj): Linear(in_features=4096, out_features=4096, bias=False)
+          (rotary_emb): LlamaRotaryEmbedding()
+        )
+        (mlp): LlamaMLP(
+          (gate_proj): Linear(in_features=4096, out_features=14336, bias=False)
+          (up_proj): Linear(in_features=4096, out_features=14336, bias=False)
+          (down_proj): Linear(in_features=14336, out_features=4096, bias=False)
+          (act_fn): SiLU()
+        )
+        (input_layernorm): LlamaRMSNorm()
+        (post_attention_layernorm): LlamaRMSNorm()
+      )
+    )
+    (norm): LlamaRMSNorm()
+  )
+  (lm_head): Linear(in_features=4096, out_features=128265, bias=False)
+)
+ Mem usage model: 16.06 GB | Total Mem usage: 43.03 GB
+ Freezing model...
+ trainable params: 0 || all params: 8030334976 || trainable%: 0.00
+Error executing job with overrides: ['target_llm=spcl_delm_llm', 'target_llm.llm_params.model_name=Meta-Llama-3-8B_SpclSpclSpcl_None_2024-08-09-17-02-02', 'target_llm.llm_params.checkpoint=../meta-llama/Meta-Llama-3-8B_SpclSpclSpcl_None_2024-08-09-17-02-02']
+Traceback (most recent call last):
+  File "/opt/hpcaas/.mounts/fs-0565f60d669b6a2d3/home/sizhechen/SecAlign_fairinternal/advprompter/main.py", line 720, in main
+    workspace.train()
+  File "/opt/hpcaas/.mounts/fs-0565f60d669b6a2d3/home/sizhechen/SecAlign_fairinternal/advprompter/main.py", line 145, in train
+    sampler = PrioritizedSampler(
+  File "/data/home/sizhechen/anaconda3/envs/secalign/lib/python3.10/site-packages/torchrl/data/replay_buffers/samplers.py", line 209, in __init__
+    self._init()
+  File "/data/home/sizhechen/anaconda3/envs/secalign/lib/python3.10/site-packages/torchrl/data/replay_buffers/samplers.py", line 213, in _init
+    self._sum_tree = SumSegmentTreeFp32(self._max_capacity)
+NameError: name 'SumSegmentTreeFp32' is not defined
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.

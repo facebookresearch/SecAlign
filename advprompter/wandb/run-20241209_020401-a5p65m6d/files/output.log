@@ -1,0 +1,62 @@
+Initializing Prompter...
+ Loading model: llama2-7b from huggyllama/llama-2-weights-hf-7b...
+Error executing job with overrides: ['target_llm=spcl_delm_llm', 'target_llm.llm_params.model_name=Meta-Llama-3-8B_SpclSpclSpcl_None_2024-08-09-17-02-02', 'target_llm.llm_params.checkpoint=../meta-llama/Meta-Llama-3-8B_SpclSpclSpcl_None_2024-08-09-17-02-02']
+Traceback (most recent call last):
+  File "/data/home/sizhechen/anaconda3/envs/secalign/lib/python3.10/site-packages/huggingface_hub/utils/_http.py", line 406, in hf_raise_for_status
+    response.raise_for_status()
+  File "/data/home/sizhechen/anaconda3/envs/secalign/lib/python3.10/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://huggingface.co/huggyllama/llama-2-weights-hf-7b/resolve/main/tokenizer_config.json
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/data/home/sizhechen/anaconda3/envs/secalign/lib/python3.10/site-packages/transformers/utils/hub.py", line 402, in cached_file
+    resolved_file = hf_hub_download(
+  File "/data/home/sizhechen/anaconda3/envs/secalign/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/data/home/sizhechen/anaconda3/envs/secalign/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 862, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+  File "/data/home/sizhechen/anaconda3/envs/secalign/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 969, in _hf_hub_download_to_cache_dir
+    _raise_on_head_call_error(head_call_error, force_download, local_files_only)
+  File "/data/home/sizhechen/anaconda3/envs/secalign/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1484, in _raise_on_head_call_error
+    raise head_call_error
+  File "/data/home/sizhechen/anaconda3/envs/secalign/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1376, in _get_metadata_or_catch_error
+    metadata = get_hf_file_metadata(
+  File "/data/home/sizhechen/anaconda3/envs/secalign/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/data/home/sizhechen/anaconda3/envs/secalign/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1296, in get_hf_file_metadata
+    r = _request_wrapper(
+  File "/data/home/sizhechen/anaconda3/envs/secalign/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 277, in _request_wrapper
+    response = _request_wrapper(
+  File "/data/home/sizhechen/anaconda3/envs/secalign/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 301, in _request_wrapper
+    hf_raise_for_status(response)
+  File "/data/home/sizhechen/anaconda3/envs/secalign/lib/python3.10/site-packages/huggingface_hub/utils/_http.py", line 454, in hf_raise_for_status
+    raise _format(RepositoryNotFoundError, message, response) from e
+huggingface_hub.errors.RepositoryNotFoundError: 404 Client Error. (Request ID: Root=1-67565012-6a3f54397bdd1bb10d5d17b5;3fede3e1-1da9-43ce-9af0-d09a11a907fd)
+
+Repository Not Found for url: https://huggingface.co/huggyllama/llama-2-weights-hf-7b/resolve/main/tokenizer_config.json.
+Please make sure you specified the correct `repo_id` and `repo_type`.
+If you are trying to access a private or gated repo, make sure you are authenticated.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/hpcaas/.mounts/fs-0565f60d669b6a2d3/home/sizhechen/SecAlign_fairinternal/advprompter/main.py", line 718, in main
+    workspace = Workspace(cfg)
+  File "/opt/hpcaas/.mounts/fs-0565f60d669b6a2d3/home/sizhechen/SecAlign_fairinternal/advprompter/main.py", line 57, in __init__
+    self.prompter = LLM(cfg.prompter, verbose=self.verbose)
+  File "/opt/hpcaas/.mounts/fs-0565f60d669b6a2d3/home/sizhechen/SecAlign_fairinternal/advprompter/llm.py", line 28, in __init__
+    self.model, self.tokenizer, self.embedding_matrix = llm_loader(
+  File "/opt/hpcaas/.mounts/fs-0565f60d669b6a2d3/home/sizhechen/SecAlign_fairinternal/advprompter/utils.py", line 455, in llm_loader
+    tokenizer = AutoTokenizer.from_pretrained(
+  File "/data/home/sizhechen/anaconda3/envs/secalign/lib/python3.10/site-packages/transformers/models/auto/tokenization_auto.py", line 826, in from_pretrained
+    tokenizer_config = get_tokenizer_config(pretrained_model_name_or_path, **kwargs)
+  File "/data/home/sizhechen/anaconda3/envs/secalign/lib/python3.10/site-packages/transformers/models/auto/tokenization_auto.py", line 658, in get_tokenizer_config
+    resolved_config_file = cached_file(
+  File "/data/home/sizhechen/anaconda3/envs/secalign/lib/python3.10/site-packages/transformers/utils/hub.py", line 425, in cached_file
+    raise EnvironmentError(
+OSError: huggyllama/llama-2-weights-hf-7b is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'
+If this is a private repository, make sure to pass a token having permission to this repo either by logging in with `huggingface-cli login` or by passing `token=<your_token>`
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.

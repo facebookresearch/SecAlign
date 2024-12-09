@@ -1,0 +1,132 @@
+prompter:
+  llm_params:
+    device: cuda:1
+    freeze: false
+    dtype: float32
+    model_name: llama2-7b
+    checkpoint: ../huggyllama/llama-2-weights-hf-7b
+    lora_params:
+      warmstart: false
+      lora_checkpoint: null
+      lora_config:
+        r: 8
+        lora_alpha: 16
+        bias: none
+        target_modules:
+        - q_proj
+        - v_proj
+        - lm_head
+  allow_non_ascii: false
+  gen_params:
+    do_sample: true
+    temperature: 1.0
+    top_p: 0.9
+  prompt_manager:
+    prompt_template:
+    - key: system_message
+      msg: <s>
+    - key: hyper_instruct
+      msg: '{instruct}'
+    - key: suffix
+      msg: '{suffix}'
+target_llm:
+  llm_params:
+    device: cuda:0
+    freeze: true
+    dtype: float16
+    lora_params:
+      lora_checkpoint: null
+      lora_config: null
+    model_name: Meta-Llama-3-8B_SpclSpclSpcl_None_2024-08-09-17-02-02
+    checkpoint: ../meta-llama/Meta-Llama-3-8B_SpclSpclSpcl_None_2024-08-09-17-02-02
+  allow_non_ascii: true
+  gen_params:
+    max_new_tokens: 150
+    do_sample: false
+  prompt_manager:
+    prompt_template:
+    - key: system_message
+      msg: 'Below is an instruction that describes a task, paired with an input that
+        provides further context. Write a response that appropriately completes the
+        request.
+
+
+        '
+    - key: full_instruct
+      msg: '{full_instruct}'
+    - key: separator
+      msg: '
+
+
+        [MARK] [RESP][COLN]
+
+        '
+    - key: target
+      msg: '{target}'
+verbose: true
+seed: 2023
+reweight_loss: true
+output_dir: ./exp/local/${now:%Y.%m.%d}/${now:%H%M%S}_${target_llm.llm_params.model_name}
+data:
+  data_dir: ./data
+  test_prefixes_pth: ${data.data_dir}/prompt_injected_prefixes.csv
+  affirmative_prefixes_pth: ${data.data_dir}/prompt_injected_prefixes.csv
+wandb_params:
+  entity: sizhe-chen
+  project: advprompter
+  log_sequences_every:
+    train: 100
+    eval: 100
+  enable_wandb: true
+mode: train
+eval:
+  batch_size: 8
+  num_trials: 1
+  prompter:
+    max_new_tokens_list:
+    - 30
+  data:
+    suffix_dataset_dir: ${output_dir}/suffix_dataset
+    dataset_pth_dct:
+      train: ${data.data_dir}/prompt_injections/dataset/test.csv
+train:
+  q_params:
+    max_new_tokens: 30
+    num_beams: 4
+    repetition_penalty: 1.2
+    top_k: 48
+    num_chunks: 6
+    lambda_val: 1000
+    candidates:
+      do_sample: true
+      temperature: 0.6
+      always_include_best: true
+    beams:
+      do_sample: true
+      temperature: 0.6
+      always_include_best: true
+  epochs: 10
+  dataset_key: foo
+  dataset_pth: ${data.data_dir}/prompt_injections/dataset/test.csv
+  suffix_opt_dataset_dir: ${output_dir}/suffix_opt_dataset
+  do_initial_eval: false
+  eval_every: 1
+  model_save_dir: ${output_dir}/checkpoints
+  augment_target: true
+  replay_buffer:
+    num_updates: 8
+    size: 256
+    priority_alpha: 1.5
+    priority_factor:
+      loss_delta: 1.0
+      jailbreaking: 1.0
+  prompter_optim_params:
+    lr: 0.0005
+  batch_size: 4
+pretrain:
+  enable: false
+  epochs: 20
+  batch_size: 8
+  dataset_key: pretrain
+  dataset_pth: '...'
+  do_eval_after: true

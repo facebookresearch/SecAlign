@@ -1,0 +1,16 @@
+{"time":"2024-12-09T02:05:37.623889367Z","level":"INFO","msg":"using version","core version":"0.18.5"}
+{"time":"2024-12-09T02:05:37.624197403Z","level":"INFO","msg":"created symlink","path":"/opt/hpcaas/.mounts/fs-0565f60d669b6a2d3/home/sizhechen/SecAlign_fairinternal/advprompter/wandb/run-20241209_020537-va26h6cp/logs/debug-core.log"}
+{"time":"2024-12-09T02:05:37.734073331Z","level":"INFO","msg":"created new stream","id":"va26h6cp"}
+{"time":"2024-12-09T02:05:37.73411698Z","level":"INFO","msg":"stream: started","id":"va26h6cp"}
+{"time":"2024-12-09T02:05:37.734153863Z","level":"INFO","msg":"sender: started","stream_id":"va26h6cp"}
+{"time":"2024-12-09T02:05:37.734144647Z","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"va26h6cp"}}
+{"time":"2024-12-09T02:05:37.734211839Z","level":"INFO","msg":"handler: started","stream_id":{"value":"va26h6cp"}}
+{"time":"2024-12-09T02:05:38.002283529Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-12-09T02:13:49.851998925Z","level":"INFO","msg":"stream: closing","id":"va26h6cp"}
+{"time":"2024-12-09T02:13:49.852057447Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-12-09T02:13:49.853903952Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-12-09T02:13:50.142350786Z","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-12-09T02:13:50.292855912Z","level":"INFO","msg":"handler: closed","stream_id":{"value":"va26h6cp"}}
+{"time":"2024-12-09T02:13:50.292894569Z","level":"INFO","msg":"sender: closed","stream_id":"va26h6cp"}
+{"time":"2024-12-09T02:13:50.292890179Z","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"va26h6cp"}}
+{"time":"2024-12-09T02:13:50.294503191Z","level":"INFO","msg":"stream: closed","id":"va26h6cp"}

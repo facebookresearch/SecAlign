@@ -1,0 +1,32 @@
+Initializing Prompter...
+ Loading model: llama2-7b from ../huggyllama/llama-2-weights-hf-7b...
+Error executing job with overrides: ['target_llm=spcl_delm_llm', 'target_llm.llm_params.model_name=Meta-Llama-3-8B_SpclSpclSpcl_None_2024-08-09-17-02-02', 'target_llm.llm_params.checkpoint=../meta-llama/Meta-Llama-3-8B_SpclSpclSpcl_None_2024-08-09-17-02-02']
+Traceback (most recent call last):
+  File "/data/home/sizhechen/anaconda3/envs/secalign/lib/python3.10/site-packages/transformers/utils/hub.py", line 402, in cached_file
+    resolved_file = hf_hub_download(
+  File "/data/home/sizhechen/anaconda3/envs/secalign/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 106, in _inner_fn
+    validate_repo_id(arg_value)
+  File "/data/home/sizhechen/anaconda3/envs/secalign/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 154, in validate_repo_id
+    raise HFValidationError(
+huggingface_hub.errors.HFValidationError: Repo id must be in the form 'repo_name' or 'namespace/repo_name': '../huggyllama/llama-2-weights-hf-7b'. Use `repo_type` argument if needed.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/hpcaas/.mounts/fs-0565f60d669b6a2d3/home/sizhechen/SecAlign_fairinternal/advprompter/main.py", line 718, in main
+    workspace = Workspace(cfg)
+  File "/opt/hpcaas/.mounts/fs-0565f60d669b6a2d3/home/sizhechen/SecAlign_fairinternal/advprompter/main.py", line 57, in __init__
+    self.prompter = LLM(cfg.prompter, verbose=self.verbose)
+  File "/opt/hpcaas/.mounts/fs-0565f60d669b6a2d3/home/sizhechen/SecAlign_fairinternal/advprompter/llm.py", line 28, in __init__
+    self.model, self.tokenizer, self.embedding_matrix = llm_loader(
+  File "/opt/hpcaas/.mounts/fs-0565f60d669b6a2d3/home/sizhechen/SecAlign_fairinternal/advprompter/utils.py", line 455, in llm_loader
+    tokenizer = AutoTokenizer.from_pretrained(
+  File "/data/home/sizhechen/anaconda3/envs/secalign/lib/python3.10/site-packages/transformers/models/auto/tokenization_auto.py", line 826, in from_pretrained
+    tokenizer_config = get_tokenizer_config(pretrained_model_name_or_path, **kwargs)
+  File "/data/home/sizhechen/anaconda3/envs/secalign/lib/python3.10/site-packages/transformers/models/auto/tokenization_auto.py", line 658, in get_tokenizer_config
+    resolved_config_file = cached_file(
+  File "/data/home/sizhechen/anaconda3/envs/secalign/lib/python3.10/site-packages/transformers/utils/hub.py", line 466, in cached_file
+    raise EnvironmentError(
+OSError: Incorrect path_or_model_id: '../huggyllama/llama-2-weights-hf-7b'. Please provide either the path to a local folder or the repo_id of a model on the Hub.
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
