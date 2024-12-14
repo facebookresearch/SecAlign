@@ -1,0 +1,29 @@
+defaults:
+  - prompter: llama2  # one of: llama2, tiny_llama (see corresponding .yaml in conf/prompter/)
+  - target_llm: vicuna_chat  # one of: llama2_chat, vicuna_chat, mistral_chat, pythia_chat, falcon_chat, gemma_chat, tiny_llama_chat (see corresponding .yaml in conf/target_llm/)
+  - _self_
+  
+verbose: true
+seed: 2023
+reweight_loss: true
+output_dir: "./exp/local/${now:%Y.%m.%d}/${now:%H%M%S}_${target_llm.llm_params.model_name}"
+
+data:
+  data_dir: "./data"
+  test_prefixes_pth: "${data.data_dir}/prompt_injected_prefixes.csv"
+  affirmative_prefixes_pth: "${data.data_dir}/prompt_injected_prefixes.csv"
+
+wandb_params:
+  entity: "sizhe-chen"
+  project: "advprompter"
+  log_sequences_every: 
+    train: 100 #1000
+    eval: 100 #1000
+  enable_wandb: true
+
+hydra:
+  run:
+    dir: ${output_dir}
+  # sweep:
+  #   dir: ./exp/${now:%Y.%m.%d}/${hydra.runtime.choices.data}_${now:%H%M}
+  #   subdir: ${hydra.job.num}

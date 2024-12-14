@@ -1,0 +1,11 @@
+__pycache__
+wandb
+/data
+advprompter/exp
+core.*
+huggyllama
+mistralai
+meta-llama
+test.csv
+figures
+*.log
