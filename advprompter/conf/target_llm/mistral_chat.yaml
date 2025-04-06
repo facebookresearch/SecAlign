@@ -1,0 +1,21 @@
+defaults:
+  - base_target_llm
+  - _self_
+
+llm_params:
+  model_name: null
+  checkpoint: null
+  lora_params:
+    lora_checkpoint: null
+    lora_config: null
+prompt_manager:
+  prompt_template:
+    - key: system_message
+      # msg: "<s>[INST] <<SYS>>\nThis is a system message.\n<</SYS>>\n\n"
+      msg: "\n\n" #"<s>[INST]"
+    - key: full_instruct
+      msg: "{full_instruct}"  # loaded from context
+    - key: separator
+      msg: "\n\n[/INST]\n\n" #"[/INST]"
+    - key: target
+      msg: "{target}"  # loaded from context

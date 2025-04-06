@@ -1,0 +1,35 @@
+defaults:
+  - base
+  - _self_
+
+mode: eval
+
+eval:
+  batch_size: 8
+  num_trials: 1 #3 # number of sampling performed per iter, evaluate ASR@k (k=num_trials * len(max_new_tokens_list))
+  prompter:
+    max_new_tokens_list:
+      - 30
+  data:
+    suffix_dataset_dir: "${output_dir}/suffix_dataset"
+    dataset_pth_dct:
+      train: "${data.data_dir}/prompt_injections/dataset/train_20000.csv"
+
+
+# copy here for AdvPrompterOpt in evaluation
+train:
+  q_params:
+    max_new_tokens: 30 #10 #30
+    num_beams: 4 #2 #4
+    repetition_penalty: 1.2
+    top_k: 48 #8 #48 # try to reduce this or increase num_chunks if doesn't fit to memory
+    num_chunks: 6 #8 #4 #1  # process top_k iteratively in chunks, helps reduce memory, should divide top_k
+    lambda_val: 1000 #100 # w2 in AutoDAN paper, controls perplexity vs loss tradeoff (50-100 is good)
+    candidates:
+      do_sample: true
+      temperature: 0.6
+      always_include_best: true
+    beams:
+      do_sample: true
+      temperature: 0.6
+      always_include_best: true
