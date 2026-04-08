@@ -11,7 +11,7 @@ pandas==2.2.3
 seaborn==0.13.2
 trl==0.8.6
 peft==0.14.0
-transformers==4.45.2
+transformers==5.0.0rc3
 accelerate==0.34.0
 vllm==0.6.6
 pytorch_lightning==2.2.2
